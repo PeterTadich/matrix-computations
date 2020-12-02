@@ -1,7 +1,10 @@
 //hierarchy of linear algebraic operations (hlao) [matrix computations (linear algebra or matrix algebra)]
 
+//ECMAScript module
+
 //todo:
 //   - matrix_multiplication() return a vector not a matrix from [[]] x [[],[],[]] (1 x m) x (m x n) will return [x0, x1, x2, ...] see I:\code\spatial_v2\js\regression\ex1.html (at theta update)
+//   - not the correct implementation of matrix rank 'matrix_rank()'
 
 //matrix, rectangular array of numbers containing:
 //   - m rows
@@ -449,3 +452,24 @@ function assert(condition, message){
         throw message || "Assertion failed";
     }
 }
+
+export {
+    matrix_arithmetic,
+    matrix_multiplication_scalar,
+    matrix_multiplication,
+    matrix_mean,
+    matrix_summation,
+    vector_dot,
+    vector_cross,
+    vector_multiplication_scalar,
+    matrix_transpose,
+    vector_transpose,
+    zeros_matrix,
+    ones_matrix,
+    random_matrix,
+    identity_matrix,
+    undefined_matrix,
+    zeros_vector,
+    ones_vector,
+    matrix_rank
+};
