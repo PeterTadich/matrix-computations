@@ -446,6 +446,30 @@ function getDimensions(A){
     return[A.length, A[0].length];
 }
 
+function skew(a){
+    var x = a[0][0]; var y = a[1][0]; var z = a[2][0];
+    return([
+        [0.0,  -z,   y],
+        [  z, 0.0,  -x],
+        [ -y,   x, 0.0]
+    ]);
+}
+
+function vex(S){
+
+    //S = [
+    //        [    0.0, -1.0*wz,      wy],
+    //        [     wz,     0.0, -1.0*wx],
+    //        [-1.0*wy,      wx,     0.0]
+    //    ];
+    
+    var wx = 0.5*(S[2][1] - S[1][2]);
+    var wy = 0.5*(S[0][2] - S[2][0]);
+    var wz = 0.5*(S[1][0] - S[0][1]);
+    
+    return [[wx],[wy],[wz]];
+}
+
 //REF: http://stackoverflow.com/questions/15313418/javascript-assert
 function assert(condition, message){
     if(!condition){
@@ -471,5 +495,7 @@ export {
     undefined_matrix,
     zeros_vector,
     ones_vector,
-    matrix_rank
+    matrix_rank,
+    skew,
+    vex
 };
