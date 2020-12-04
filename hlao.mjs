@@ -456,7 +456,6 @@ function skew(a){
 }
 
 function vex(S){
-
     //S = [
     //        [    0.0, -1.0*wz,      wy],
     //        [     wz,     0.0, -1.0*wx],
