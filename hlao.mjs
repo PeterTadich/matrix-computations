@@ -4,7 +4,6 @@
 
 //todo:
 //   - matrix_multiplication() return a vector not a matrix from [[]] x [[],[],[]] (1 x m) x (m x n) will return [x0, x1, x2, ...] see I:\code\spatial_v2\js\regression\ex1.html (at theta update)
-//   - not the correct implementation of matrix rank 'matrix_rank()'
 
 //matrix, rectangular array of numbers containing:
 //   - m rows
@@ -414,6 +413,7 @@ function ones_vector(r,type){
     return u;
 }
 
+//use with 'singular-value-decomposition'
 function matrix_rank(W){
     var rank = 0;
     var zero_TOL = 1e-6;
