@@ -6,7 +6,7 @@ A hierarchy of linear algebraic operations.
 ### Node.js
 
 ```bash
-npm install https://github.com/PeterTadich/matrix-computations#main
+npm install https://github.com/PeterTadich/matrix-computations
 ```
 
 ### Google Chrome Web browser
