@@ -496,5 +496,6 @@ export {
     ones_vector,
     matrix_rank,
     skew,
-    vex
+    vex,
+    assert
 };
