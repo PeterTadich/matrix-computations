@@ -476,6 +476,75 @@ function assert(condition, message){
     }
 }
 
+//To do:
+//   - check for vector types
+/*
+//column
+var a = [[1],[2],[3],[4],[5]];
+var b = [[6],[7],[8],[9],[10]];
+var e = vector_arithmetic(a,b,'+');
+console.log(e);
+//row
+var a = [1,2,3,4,5];
+var b = [6,7,8,9,10];
+var e = vector_arithmetic(a,b,'+');
+console.log(e);
+*/
+function vector_arithmetic(a,b,operator){
+    var a_length = a.length;
+    
+    //'a' vector - row or column vector?
+    if(typeof a[0].length === 'undefined'){ //if a[0].length 'undefined'
+        //row vector (assume both are row vectors)
+        //    - create column vectors
+        var m = a_length;
+        var n = 1;
+        var c = zeros_matrix(m,n);
+        var d = zeros_matrix(m,n);
+        for(var i=0;i<a_length;i=i+1){
+            c[i][0] = a[i];
+            d[i][0] = b[i];
+        }
+        var e = matrix_arithmetic(c,d,operator);
+        e = matrix_transpose(e)[0]; //back to row vector
+    } else {
+        //column vector m x 1
+        var e = matrix_arithmetic(a,b,operator);
+    }
+    
+    return e;
+}
+
+function print_matrix(a){
+    var m; var n;
+    [m,n] = [a.length,a[0].length];
+    
+    var str = '[';
+    for(var i=0;i<m;i=i+1){
+        var str = str + '[';
+        for(var j=0;j<n;j=j+1){
+            var str = str + a[i][j].toFixed(4);
+            if(j < (n-1)) var str = str + ',';
+        }
+        var str = str + ']';
+        if(i < (m-1)) var str = str + ',\n';
+    }
+    var str = str + ']';
+    console.log(str);
+}
+
+function print_vector(a){
+    var m = a.length;
+    
+    var str = '[';
+    for(var i=0;i<m;i=i+1){
+        var str = str + a[i].toFixed(4);
+        if(i < (m-1)) var str = str + ',';
+    }
+    var str = str + ']';
+    console.log(str);
+}
+
 export {
     matrix_arithmetic,
     matrix_multiplication_scalar,
@@ -497,5 +566,8 @@ export {
     matrix_rank,
     skew,
     vex,
-    assert
+    assert,
+    vector_arithmetic,
+    print_matrix,
+    print_vector
 };
